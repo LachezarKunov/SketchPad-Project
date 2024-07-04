@@ -1,4 +1,4 @@
-const GRID_SIZE = prompt("Please, enter grid size");
+const GRID_SIZE = 16;
 
 const GRID_WIDTH_PX = 480;
 const GRID_HEIGHT_PX = 480;
