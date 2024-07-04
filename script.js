@@ -63,7 +63,8 @@ createGrid();
 
 btnChange.addEventListener("click",() => {
     gridSize = parseInt(prompt("Please, specify the grid dimensions(size of \"pixels\"). Maximum: 100"));
-    if(gridSize < 1 || gridSize > 100)
+    console.log(gridSize);
+    if(gridSize < 1 || gridSize > 100 || isNaN(gridSize))
         {
             gridSize = 16;
             alert("Grid Dimensions have been set to 16x16. Please select dimensions between 1 and 100");
