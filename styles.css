@@ -1,0 +1,15 @@
+*
+{
+    margin:0;
+}
+.container
+{
+    margin: 50px auto;
+
+    display:flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    
+    height:480px;
+    width:480px;
+}
