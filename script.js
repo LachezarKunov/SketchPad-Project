@@ -1,17 +1,20 @@
-const GRID_SIZE = 16;
+const container = document.querySelector(".container");
+const btnChange = document.querySelector("#btn-change");
+const btnClear = document.querySelector("#btn-clear");
 
+const INITIAL_GRID_SIZE = 16;
 const GRID_WIDTH_PX = 480;
 const GRID_HEIGHT_PX = 480;
 
-const container = document.querySelector(".container");
+let gridSize = INITIAL_GRID_SIZE;
 
 function createGridElement()
 {
     const div = document.createElement("div");
     div.setAttribute("class","grid-element");
     
-    div.style.height = `${GRID_HEIGHT_PX / parseInt(GRID_SIZE)}px`;
-    div.style.width = `${GRID_WIDTH_PX / parseInt(GRID_SIZE)}px`;
+    div.style.height = `${GRID_HEIGHT_PX / parseInt(gridSize)}px`;
+    div.style.width = `${GRID_WIDTH_PX / parseInt(gridSize)}px`;
 
     div.addEventListener("mouseover", (event) => 
         {
@@ -30,8 +33,40 @@ function setColor(element)
     element.style.backgroundColor=`rgb(${red},${green},${blue})`;
 }
 
-for(let i = 0; i < GRID_SIZE * GRID_SIZE ; i++)
+function createGrid()
+{
+for(let i = 0; i < gridSize * gridSize ; i++)
     {
         const element = createGridElement();
         container.appendChild(element);
     }
+}
+
+function deleteGridElements()
+{
+    while(container.firstChild)
+        {
+            container.removeChild(container.firstChild);
+        }
+}
+
+function clearGrid()
+{
+    const gridElements = container.querySelectorAll("div");
+    for(let i = 0; i < gridSize * gridSize; i++)
+        {
+            gridElements.item(i).style.backgroundColor="rgb(155, 255, 255)";
+        }
+}
+
+createGrid();
+
+btnChange.addEventListener("click",() => {
+    gridSize = parseInt(prompt("Please, specify the grid dimensions"));
+    deleteGridElements();
+    createGrid();
+});
+
+btnClear.addEventListener("click", clearGrid);
+
+
