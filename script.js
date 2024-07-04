@@ -62,7 +62,11 @@ function clearGrid()
 createGrid();
 
 btnChange.addEventListener("click",() => {
-    gridSize = parseInt(prompt("Please, specify the grid dimensions"));
+    gridSize = parseInt(prompt("Please, specify the grid dimensions(size of \"pixels\"). Maximum: 100"));
+    if(gridSize > 100)
+        {
+            gridSize = 100;
+        }
     deleteGridElements();
     createGrid();
 });
