@@ -12,7 +12,7 @@ header
 {
     border: 1px solid black;
     height:50px;
-
+    width: 100%;
     display: flex;
 }
 
@@ -53,6 +53,6 @@ button:hover {
     flex-wrap: wrap;
     border: 1px solid black;
     
-    height:480px;
-    width:480px;
+    max-height:480px;
+    max-width:480px;
 }
